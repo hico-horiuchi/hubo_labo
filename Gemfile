@@ -48,7 +48,7 @@ end
 
 group :production do
   # Use unicorn as the app server
-  # gem 'unicorn'
+  gem 'unicorn'
   gem 'rails_12factor'
 end
 
