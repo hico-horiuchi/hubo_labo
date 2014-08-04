@@ -24,6 +24,9 @@ html
 
         .collapse.navbar-collapse id="bs-example-navbar-collapse-1"
           ul.nav.navbar-nav
+            li
+              = link_to about_path do
+                = fa_icon 'question', text: 'About'
 
     .container
       - if notice
