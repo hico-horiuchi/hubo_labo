@@ -1,0 +1,37 @@
+- @title = 'Top'
+
+.masthead
+  .row
+    .col-md-1
+    .col-md-3
+      = image_tag 'hubot.png', alt: 'hubot.png', class: 'img-responsive'
+    .col-md-1
+    .col-md-7
+      h1.bold HuboLabo
+      h3.bold for Hubots
+      h3.bold for Hubot Developers
+      h3.bold for Hubot Users
+
+.panel.panel-default
+  .panel-body
+    .row
+      .col-md-1
+        = fa_icon 'code 5x'
+      .col-md-10
+        h2.bold Share your Bot, Script, and Adapter.
+        p
+          | 開発したBotやスクリプト，アダプターの情報を共有できます。
+          br
+          | また、ユーザーがスターを付けたり、コメントを書いたりすることができます。
+
+.panel.panel-default
+  .panel-body
+    .row
+      .col-md-1
+        = fa_icon 'comments 5x'
+      .col-md-10
+        h2.bold Let's talk in Chat.
+        p
+          | チャットルームでHubotについて情報交換しましょう!
+        button.btn.btn-primary
+          = fa_icon 'sign-in', text: 'チャットルームに参加'
