@@ -2,6 +2,15 @@ Rails.application.routes.draw do
   root to: 'top#index'
   get 'about' => 'top#about', as: :about
 
+  devise_for :users
+  resources :users, only: %w( show )
+
+  namespace :admin do
+    resources :users, only: %w( index )
+  end
+  get 'admin/users/:id/admin'   => 'admin/users#admin',   as: :admin_admin_user
+  get 'admin/users/:id/unadmin' => 'admin/users#unadmin', as: :unadmin_admin_user
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

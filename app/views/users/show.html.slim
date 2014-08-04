@@ -1,0 +1,28 @@
+- @title = @user.name
+
+h3.bold
+  = fa_stacked_icon 'user inverse', base: 'circle', text: @user.name
+
+- if current_user and @user.id == current_user.id
+  = link_to edit_user_registration_path, class: 'btn btn-success' do
+    = fa_icon 'pencil', text: 'Edit'
+  p
+
+ul.nav.nav-tabs
+  li.active
+    = link_to '#bots', 'data-toggle' => 'tab' do
+      = fa_icon 'smile-o', text: 'Bots'
+  li
+    = link_to '#scripts', 'data-toggle' => 'tab' do
+      = fa_icon 'code', text: 'Scripts'
+  li
+    = link_to '#adapters', 'data-toggle' => 'tab' do
+      = fa_icon 'random', text: 'Adapters'
+
+.tab-content
+  .tab-pane.fade.active.in#bots
+    p Comming soon.
+  .tab-pane.fade#scripts
+    p Comming soon.
+  .tab-pane.fade#adapters
+    p Comming soon.
