@@ -57,3 +57,4 @@ gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap
 gem 'devise'
 gem 'slim-rails'
 gem 'font-awesome-rails'
+gem 'google-analytics-rails'
