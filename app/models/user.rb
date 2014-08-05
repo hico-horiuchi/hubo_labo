@@ -19,6 +19,16 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   scope :id_is, -> (id) { where(id: id).first }
 
+  has_many :bots
+
+  def self.search( keyword )
+    if keyword
+      User.where( ['name LIKE ?', "%#{keyword}%"] )
+    else
+      User.all
+    end
+  end
+
   def admin?
     admin_flag
   end

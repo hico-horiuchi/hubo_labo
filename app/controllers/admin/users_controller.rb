@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   before_action :admin_user!
 
   def index
-    @users = User.all
+    @users = User.search( params[:keyword] ).order( updated_at: :desc ).page( params[:page] ).per( 20 )
   end
 
   def admin

@@ -3,4 +3,16 @@
 h3.bold
   = fa_stacked_icon 'users inverse', base: 'circle', text: @title
 
+.row
+  .col-md-6
+    .row
+      .col-xs-8
+          = form_tag admin_users_path, method: :get do
+            .form-group
+              .input-group
+                = text_field_tag :keyword, params[:keyword], class: 'form-control', placeholder: 'Find a user...'
+                span.input-group-btn
+                  = button_tag type: :submit, class: 'btn btn-default' do
+                    = fa_icon 'search', text: 'Search'
+
 = render partial: 'admin/users/list'
