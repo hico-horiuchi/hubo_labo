@@ -28,6 +28,10 @@ html
             li
               = link_to about_path do
                 = fa_icon 'question', text: 'About'
+            li
+              = link_to bots_path do
+                = fa_icon 'smile-o', text: 'Bots'
+          ul.nav.navbar-nav.navbar-right
             - if current_user
               - if current_user.admin?
                 li.dropdown
@@ -39,8 +43,6 @@ html
                     li
                       = link_to admin_users_path do
                         = fa_icon 'users', text: 'Users'
-          ul.nav.navbar-nav.navbar-right
-            - if current_user
               li.dropdown
                 a.dropdown-toggle href="#" data-toggle="dropdown"
                   = fa_icon 'user', text: current_user.name

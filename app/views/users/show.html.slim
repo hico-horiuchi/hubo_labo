@@ -21,7 +21,13 @@ ul.nav.nav-tabs
 
 .tab-content
   .tab-pane.fade.active.in#bots
-    p Comming soon.
+    - if @user.bots.empty?
+      .alert.alert-warning 登録されているBotはありません。
+    - else
+      ul.list-group
+        - @user.bots.each do |bot|
+          li.list-group-item
+            = link_to bot.name, bot_path( bot.id )
   .tab-pane.fade#scripts
     p Comming soon.
   .tab-pane.fade#adapters

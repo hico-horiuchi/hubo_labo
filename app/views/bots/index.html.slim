@@ -1,0 +1,25 @@
+- @title = 'Bots'
+
+h3.bold
+  = fa_stacked_icon 'smile-o inverse', base: 'circle', text: @title
+
+.row
+  .col-md-6
+    .row
+      .col-xs-8
+          = form_tag bots_path, method: :get do
+            .form-group
+              .input-group
+                = text_field_tag :keyword, params[:keyword], class: 'form-control', placeholder: 'Find a bot...'
+                span.input-group-btn
+                  = button_tag type: :submit, class: 'btn btn-default' do
+                    = fa_icon 'search', text: 'Search'
+      .col-xs-4
+        - if current_user
+          = link_to new_bot_path, class: 'btn btn-primary', remote: true do
+            = fa_icon 'plus', text: 'New'
+        - else
+          button.btn.btn.primary disabled="true"
+            = fa_icon 'plus', text: 'New'
+
+= render partial: 'bots/list'

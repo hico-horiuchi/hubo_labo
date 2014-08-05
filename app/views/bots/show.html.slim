@@ -1,0 +1,27 @@
+- @title = @bot.name
+
+ul.pager
+  li.previous
+    = link_to '← LIST', bots_path
+
+h3.bold
+  = fa_stacked_icon 'smile-o inverse', base: 'circle', text: @title
+
+= link_to user_path( @bot.user_id ), class: 'btn btn-info' do
+  = fa_icon 'user', text: @bot.user.name
+| &nbsp;
+- unless @bot.github.empty?
+  = link_to @bot.github, class: 'btn btn-default' do
+    = fa_icon 'github', text: 'GitHub'
+  | &nbsp;
+- if current_user and @bot.user_id == current_user.id
+  = link_to edit_bot_path( @bot.id ), class: 'btn btn-success', remote: true do
+    = fa_icon 'pencil', text: 'Edit'
+  | &nbsp;
+  = link_to delete_bot_path( @bot.id ), class: 'btn btn-danger', remote: true do
+    = fa_icon 'trash-o', text: 'Delete'
+
+p
+
+.well
+  = simple_format @bot.description
