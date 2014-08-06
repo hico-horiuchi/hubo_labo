@@ -2,14 +2,15 @@
 
 ul.pager
   li.previous
-    = link_to '← LIST', bots_path
+    = link_to bots_path do
+      = fa_icon 'th-list', text: 'List'
+  li.next
+    = link_to user_path( @bot.user_id ) do
+      = fa_icon 'user', text: @bot.user.name
 
 h3.bold
   = fa_stacked_icon 'smile-o inverse', base: 'circle', text: @title
 
-= link_to user_path( @bot.user_id ), class: 'btn btn-info' do
-  = fa_icon 'user', text: @bot.user.name
-| &nbsp;
 - unless @bot.github.empty?
   = link_to @bot.github, class: 'btn btn-default' do
     = fa_icon 'github', text: 'GitHub'
