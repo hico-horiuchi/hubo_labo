@@ -34,6 +34,9 @@ html
             li
               = link_to adapters_path do
                 = fa_icon 'random', text: 'Adapters'
+            li
+              = link_to scripts_path do
+                = fa_icon 'code', text: 'Scripts'
           ul.nav.navbar-nav.navbar-right
             - if current_user
               - if current_user.admin?

@@ -37,4 +37,10 @@ ul.nav.nav-tabs
           li.list-group-item
             = link_to adapter.name, adapter_path( adapter.id )
   .tab-pane.fade#scripts
-    p Comming soon.
+    - if @user.scripts.empty?
+      .alert.alert-warning 登録されているScriptはありません。
+    - else
+      ul.list-group
+        - @user.scripts.each do |script|
+          li.list-group-item
+            = link_to script.name, script_path( script.id )

@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resources :adapters
   get 'adapters/:id/delete' => 'adapters#delete', as: :delete_adapter
 
+  resources :scripts
+  get 'scripts/:id/delete' => 'scripts#delete', as: :delete_script
+
   namespace :admin do
     resources :users, only: %w( index )
   end

@@ -1,0 +1,20 @@
+- if @scripts.empty?
+  .alert.alert-warning 登録されているScriptはありません。
+- else
+  - users = []
+  - @scripts.each do |script|
+    - users[script.user_id] = script.user unless users[script.user_id]
+    .panel.panel-default
+      .panel-heading
+        = link_to script.name, script_path( script.id ), class: 'bold'
+        | &nbsp;
+        small
+          | by&nbsp;
+          = link_to users[script.user_id].name, user_path( script.user_id )
+      .panel-body
+        - if script.description.empty?
+          | まだ、このScriptに説明はありません。
+        - else
+          | #{script.description[0..150]}
+          = '...' if script.description.length > 150
+  = paginate @scripts

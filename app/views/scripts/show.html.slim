@@ -1,0 +1,31 @@
+- @title = @script.name
+
+ul.pager
+  li.previous
+    = link_to scripts_path do
+      = fa_icon 'th-list', text: 'List'
+  li.next
+    = link_to user_path( @script.user_id ) do
+      = fa_icon 'user', text: @script.user.name
+
+h3.bold
+  = fa_stacked_icon 'smile-o inverse', base: 'circle', text: @title
+
+- unless @script.github.empty?
+  = link_to @script.github, class: 'btn btn-default' do
+    = fa_icon 'github', text: 'GitHub'
+  | &nbsp;
+- if current_user and @script.user_id == current_user.id
+  = link_to edit_script_path( @script.id ), class: 'btn btn-success', remote: true do
+    = fa_icon 'pencil', text: 'Edit'
+  | &nbsp;
+  = link_to delete_script_path( @script.id ), class: 'btn btn-danger', remote: true do
+    = fa_icon 'trash-o', text: 'Delete'
+
+p
+
+.well
+  - if @script.description.empty?
+    | まだ、このScriptに説明はありません。
+  - else
+    = simple_format @script.description

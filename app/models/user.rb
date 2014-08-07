@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
 
   has_many :bots
   has_many :adapters
+  has_many :scripts
 
   def self.search( keyword )
     if keyword
