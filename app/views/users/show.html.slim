@@ -13,11 +13,11 @@ ul.nav.nav-tabs
     = link_to '#bots', 'data-toggle' => 'tab' do
       = fa_icon 'smile-o', text: 'Bots'
   li
-    = link_to '#scripts', 'data-toggle' => 'tab' do
-      = fa_icon 'code', text: 'Scripts'
-  li
     = link_to '#adapters', 'data-toggle' => 'tab' do
       = fa_icon 'random', text: 'Adapters'
+  li
+    = link_to '#scripts', 'data-toggle' => 'tab' do
+      = fa_icon 'code', text: 'Scripts'
 
 .tab-content
   .tab-pane.fade.active.in#bots
@@ -28,7 +28,7 @@ ul.nav.nav-tabs
         - @user.bots.each do |bot|
           li.list-group-item
             = link_to bot.name, bot_path( bot.id )
-  .tab-pane.fade#scripts
-    p Comming soon.
   .tab-pane.fade#adapters
+    p Comming soon.
+  .tab-pane.fade#scripts
     p Comming soon.
