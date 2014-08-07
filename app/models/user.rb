@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   scope :id_is, -> (id) { where(id: id).first }
 
   has_many :bots
+  has_many :adapters
 
   def self.search( keyword )
     if keyword

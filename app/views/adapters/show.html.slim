@@ -1,0 +1,38 @@
+- @title = @adapter.name
+
+ul.pager
+  li.previous
+    = link_to adapters_path do
+      = fa_icon 'th-list', text: 'List'
+  li.next
+    = link_to user_path( @adapter.user_id ) do
+      = fa_icon 'user', text: @adapter.user.name
+
+h3.bold
+  = fa_stacked_icon 'random inverse', base: 'circle', text: @title
+
+- unless @adapter.github.empty?
+  = link_to @adapter.github, class: 'btn btn-default' do
+    = fa_icon 'github', text: 'GitHub'
+  | &nbsp;
+- if @adapter.service_url.empty?
+  button.btn.btn-info disabled="true"
+    = fa_icon 'arrow-right', text: @adapter.service_name
+- else
+  = link_to @adapter.service_url, class: 'btn btn-info' do
+    = fa_icon 'arrow-right', text: @adapter.service_name
+| &nbsp;
+- if current_user and @adapter.user_id == current_user.id
+  = link_to edit_adapter_path( @adapter.id ), class: 'btn btn-success', remote: true do
+    = fa_icon 'pencil', text: 'Edit'
+  | &nbsp;
+  = link_to delete_adapter_path( @adapter.id ), class: 'btn btn-danger', remote: true do
+    = fa_icon 'trash-o', text: 'Delete'
+
+p
+
+.well
+  - if @adapter.description.empty?
+    | まだ、このAdapterに説明はありません。
+  - else
+    = simple_format @adapter.description

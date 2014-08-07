@@ -25,4 +25,7 @@ h3.bold
 p
 
 .well
-  = simple_format @bot.description
+  - if @bot.description.empty?
+    | まだ、このBotに説明はありません。
+  - else
+    = simple_format @bot.description

@@ -29,6 +29,12 @@ ul.nav.nav-tabs
           li.list-group-item
             = link_to bot.name, bot_path( bot.id )
   .tab-pane.fade#adapters
-    p Comming soon.
+    - if @user.adapters.empty?
+      .alert.alert-warning 登録されているAdapterはありません。
+    - else
+      ul.list-group
+        - @user.adapters.each do |adapter|
+          li.list-group-item
+            = link_to adapter.name, adapter_path( adapter.id )
   .tab-pane.fade#scripts
     p Comming soon.

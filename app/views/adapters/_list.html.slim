@@ -1,0 +1,25 @@
+- if @adapters.empty?
+  .alert.alert-warning 登録されているAdapterはありません。
+- else
+  - users = []
+  - @adapters.each do |adapter|
+    - users[adapter.user_id] = adapter.user unless users[adapter.user_id]
+    .panel.panel-default
+      .panel-heading
+        = link_to adapter.name, adapter_path( adapter.id ), class: 'bold'
+        | &nbsp;
+        small
+          | for&nbsp
+          - if adapter.service_url.empty?
+            | #{adapter.service_name}
+          - else
+            = link_to adapter.service_name, adapter.service_url
+          | &nbsp;by&nbsp;
+          = link_to users[adapter.user_id].name, user_path( adapter.user_id )
+      .panel-body
+        - if adapter.description.empty?
+          | まだ、このAdapterに説明はありません。
+        - else
+          | #{adapter.description[0..150]}
+          = '...' if adapter.description.length > 150
+  = paginate @adapters

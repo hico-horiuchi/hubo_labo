@@ -4,8 +4,12 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, only: %w( show )
+
   resources :bots
   get 'bots/:id/delete' => 'bots#delete', as: :delete_bot
+
+  resources :adapters
+  get 'adapters/:id/delete' => 'adapters#delete', as: :delete_adapter
 
   namespace :admin do
     resources :users, only: %w( index )
