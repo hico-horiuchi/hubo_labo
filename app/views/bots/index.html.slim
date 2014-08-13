@@ -22,4 +22,4 @@ h3.bold
           button.btn.btn.primary disabled="true"
             = fa_icon 'plus', text: 'New'
 
-= render partial: 'bots/list'
+= render partial: 'bots/list', locals: { bots: @bots }

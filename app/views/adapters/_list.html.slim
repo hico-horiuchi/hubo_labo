@@ -1,8 +1,8 @@
-- if @adapters.empty?
+- if adapters.empty?
   .alert.alert-warning 登録されているAdapterはありません。
 - else
   - users = []
-  - @adapters.each do |adapter|
+  - adapters.each do |adapter|
     - users[adapter.user_id] = adapter.user_name unless users[adapter.user_id]
     .panel.panel-default
       .panel-heading
@@ -22,4 +22,4 @@
         - else
           | #{adapter.description[0..150]}
           = '...' if adapter.description.length > 150
-  = paginate @adapters
+  = paginate adapters

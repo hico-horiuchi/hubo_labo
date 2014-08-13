@@ -1,8 +1,8 @@
-- if @scripts.empty?
+- if scripts.empty?
   .alert.alert-warning 登録されているScriptはありません。
 - else
   - users = []
-  - @scripts.each do |script|
+  - scripts.each do |script|
     - users[script.user_id] = script.user_name unless users[script.user_id]
     .panel.panel-default
       .panel-heading
@@ -17,4 +17,4 @@
         - else
           | #{script.description[0..150]}
           = '...' if script.description.length > 150
-  = paginate @scripts
+  = paginate scripts

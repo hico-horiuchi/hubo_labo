@@ -1,8 +1,8 @@
-- if @bots.empty?
+- if bots.empty?
   .alert.alert-warning 登録されているBotはありません。
 - else
   - users = []
-  - @bots.each do |bot|
+  - bots.each do |bot|
     - users[bot.user_id] = bot.user_name unless users[bot.user_id]
     .panel.panel-default
       .panel-heading
@@ -17,4 +17,4 @@
         - else
           | #{bot.description[0..150]}
           = '...' if bot.description.length > 150
-  = paginate @bots
+  = paginate bots

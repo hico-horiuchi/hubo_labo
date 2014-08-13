@@ -1,4 +1,4 @@
-- if @users.empty?
+- if users.empty?
   .alert.alert-warning 登録されているユーザーはいません。
 - else
   .table-responsive
@@ -8,7 +8,7 @@
         th Email
         th.center style="width: 75px;" Admin
       tbody
-        - @users.each do |user|
+        - users.each do |user|
           tr
             td #{user.name}
             td #{user.email}
@@ -22,4 +22,4 @@
               - else
                 = link_to admin_admin_user_path( user.id ), class: 'btn btn-success btn-xs', remote: true do
                   = fa_icon 'plus', text: 'Add'
-  = paginate @users
+  = paginate users
