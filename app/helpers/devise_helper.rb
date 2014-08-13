@@ -9,11 +9,7 @@ module DeviseHelper
       resource: resource.class.model_name.human.downcase
     )
 
-    html = <<-HTML
-      <h4>#{sentence}</h4>
-      <ul>#{messages}</ul>
-    HTML
-
+    html = sentence
     html.html_safe
   end
 end

@@ -11,44 +11,69 @@ br
   .col-md-offset-3.col-md-6
     .panel.panel-primary
       .panel-heading
-        h3.panel-title.bold #{@title}
+        h3.panel-title.bold  = fa_icon 'pencil', text: @title
       .panel-body
         = form_for resource, as: resource_name, url: registration_path( resource_name ), html: { class: 'form-horizontal' } do |f|
-          .form-group
+          .form-group class="#{'has-error' if resource.errors.messages[:name]}"
             .col-md-1
             .col-md-10
               .input-group
                 span.input-group-addon
                   = fa_icon 'user fw'
                 = f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'Name'
-          .form-group
+              - unless resource.errors.messages[:name].empty?
+                p
+                  ul.text-danger
+                    - resource.errors.messages[:name].each do |message|
+                      li 名前#{message}
+          .form-group class="#{'has-error' if resource.errors.messages[:email]}"
             .col-md-1
             .col-md-10
               .input-group
                 span.input-group-addon
                   = fa_icon 'envelope fw'
                 = f.text_field :email, autofocus: true, class: 'form-control', placeholder: 'Email'
-          .form-group
+              - unless resource.errors.messages[:email].empty?
+                p
+                  ul.text-danger
+                    - resource.errors.messages[:email].each do |message|
+                      li メールアドレス#{message}
+          .form-group class="#{'has-error' if resource.errors.messages[:current_password]}"
             .col-md-1
             .col-md-10
               .input-group
                 span.input-group-addon
                   = fa_icon 'lock fw'
                 = f.password_field :current_password, autocomplete: 'off', class: 'form-control', placeholder: 'Current Password'
-          .form-group
+              - unless resource.errors.messages[:current_password].empty?
+                p
+                  ul.text-danger
+                    - resource.errors.messages[:current_password].each do |message|
+                      li 現在のパスワード#{message}
+          .form-group class="#{'has-error' if resource.errors.messages[:password]}"
             .col-md-1
             .col-md-10
               .input-group
                 span.input-group-addon
                   = fa_icon 'lock fw'
-                = f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'New Password'
-          .form-group
+                = f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Password'
+              - unless resource.errors.messages[:password].empty?
+                p
+                  ul.text-danger
+                    - resource.errors.messages[:password].each do |message|
+                      li 新しいパスワード#{message}
+          .form-group class="#{'has-error' if resource.errors.messages[:password_confirmation]}"
             .col-md-1
             .col-md-10
               .input-group
                 span.input-group-addon
                   = fa_icon 'lock fw'
                 = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', placeholder: 'Password Confirmation'
+              - unless resource.errors.messages[:password_confirmation].empty?
+                p
+                  ul.text-danger
+                    - resource.errors.messages[:password_confirmation].each do |message|
+                      li 確認のパスワード#{message}
           .form-group
             .col-md-offset-1.col-md-10
               = f.submit 'Save changes', class: 'btn btn-primary'
