@@ -3,7 +3,7 @@
 - else
   - users = []
   - @adapters.each do |adapter|
-    - users[adapter.user_id] = adapter.user unless users[adapter.user_id]
+    - users[adapter.user_id] = adapter.user_name unless users[adapter.user_id]
     .panel.panel-default
       .panel-heading
         = link_to adapter.name, adapter_path( adapter.id ), class: 'bold'
@@ -15,7 +15,7 @@
           - else
             = link_to adapter.service_name, adapter.service_url
           | &nbsp;by&nbsp;
-          = link_to users[adapter.user_id].name, user_path( adapter.user_id )
+          = link_to users[adapter.user_id], user_path( adapter.user_id )
       .panel-body
         - if adapter.description.empty?
           | まだ、このAdapterに説明はありません。

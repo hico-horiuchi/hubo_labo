@@ -6,7 +6,7 @@ ul.pager
       = fa_icon 'th-list', text: 'List'
   li.next
     = link_to user_path( @script.user_id ) do
-      = fa_icon 'user', text: @script.user.name
+      = fa_icon 'user', text: @script.user_name
 
 h3.bold
   = fa_stacked_icon 'smile-o inverse', base: 'circle', text: @title

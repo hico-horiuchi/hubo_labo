@@ -18,6 +18,7 @@ class Adapter < ActiveRecord::Base
   scope :id_is, -> (id) { where(id: id).first }
 
   belongs_to :user
+  delegate :name, to: :user, prefix: true
 
   def self.search( keyword )
     if keyword
