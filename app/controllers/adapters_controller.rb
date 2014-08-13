@@ -16,7 +16,6 @@ class AdaptersController < ApplicationController
   def create
     @adapter = Adapter.new( adapter_params )
     @result = @adapter.save
-    @adapter = nil unless @result
     flash[:notice] = '登録しました。' if @result
   end
 
@@ -26,7 +25,6 @@ class AdaptersController < ApplicationController
 
   def update
     @result = @adapter.update( adapter_params )
-    @adapter = nil unless @result
     flash[:notice] = '更新しました。' if @result
   end
 

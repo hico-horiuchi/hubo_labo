@@ -16,7 +16,6 @@ class ScriptsController < ApplicationController
   def create
     @script = Script.new( script_params )
     @result = @script.save
-    @script = nil unless @result
     flash[:notice] = '登録しました。' if @result
   end
 
@@ -26,7 +25,6 @@ class ScriptsController < ApplicationController
 
   def update
     @result = @script.update( script_params )
-    @script = nil unless @result
     flash[:notice] = '更新しました。' if @result
   end
 

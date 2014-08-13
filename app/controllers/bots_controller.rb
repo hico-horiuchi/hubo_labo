@@ -16,7 +16,6 @@ class BotsController < ApplicationController
   def create
     @bot = Bot.new( bot_params )
     @result = @bot.save
-    @bot = nil unless @result
     flash[:notice] = '登録しました。' if @result
   end
 
@@ -26,7 +25,6 @@ class BotsController < ApplicationController
 
   def update
     @result = @bot.update( bot_params )
-    @bot = nil unless @result
     flash[:notice] = '更新しました。' if @result
   end
 
