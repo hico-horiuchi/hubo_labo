@@ -37,4 +37,4 @@
     = f.submit button_caption, class: 'btn btn-primary'
     = content_tag :button, 'Cancel', class: 'btn btn-default', 'data-dismiss' => 'modal'
 
-  - modal_dialog :id => 'modal-form', :header => { :show_close => true, :dismiss => 'modal', :title => title }, body: modal_body, :footer => modal_footer
+  = modal_dialog id: 'modal-form', header: { show_close: true, dismiss: 'modal', title: title }, body: { content: modal_body }, footer: { content: modal_footer }
