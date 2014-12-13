@@ -11,18 +11,10 @@
  * file per style scope.
  *
  *= require bootstrap_and_overrides
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
-
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('/assets/glyphicons-halflings-regular.eot');
-  src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-       url('/assets/glyphicons-halflings-regular.woff') format('woff'),
-       url('/assets/glyphicons-halflings-regular.ttf') format('truetype'),
-       url('/assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-}
 
 body, h1, h2, h3, h4, text {
   font-family: 'Exo', sans-serif !important;
